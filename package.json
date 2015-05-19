@@ -1,6 +1,6 @@
 {
   "name": "exphbs",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "lib/exphbs.js",
   "dependencies": {
     "handlebars": "^3.0.3"
