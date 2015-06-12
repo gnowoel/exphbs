@@ -1,6 +1,6 @@
-# exphbs
+# exphbs [![Build Status](https://travis-ci.org/gnowoel/exphbs.svg?branch=master)](https://travis-ci.org/gnowoel/exphbs)
 
-A Handlebars view engine for Express.
+A [Handlebars](https://github.com/wycats/handlebars.js) view engine for [Express](https://github.com/strongloop/express).
 
 ## Notes
 
