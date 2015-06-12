@@ -1,7 +1,16 @@
 {
   "name": "exphbs",
   "version": "0.0.6",
+  "scripts": {
+    "test": "NODE_ENV=test mocha"
+  },
   "dependencies": {
     "handlebars": "^3.0.3"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "express": "^4.12.4",
+    "mocha": "*",
+    "request": "^2.57.0"
   }
 }
