@@ -1,6 +1,6 @@
 {
   "name": "exphbs",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A Handlebars view engine for Express (Beta)",
   "license": "MIT",
   "scripts": {
