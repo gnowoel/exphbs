@@ -1,8 +1,13 @@
 {
   "name": "exphbs",
   "version": "0.0.6",
+  "description": "A Handlebars view engine for Express (Beta)",
+  "license": "MIT",
   "scripts": {
     "test": "NODE_ENV=test mocha"
+  },
+  "repository": {
+    "url": "https://github.com/gnowoel/exphbs"
   },
   "dependencies": {
     "handlebars": "^3.0.3"
