@@ -4,7 +4,9 @@
   "description": "A Handlebars view engine for Express (Beta)",
   "license": "MIT",
   "scripts": {
-    "test": "NODE_ENV=test mocha"
+    "test": "npm run test4x && npm run test3x",
+    "test4x": "npm install express@4.x && mocha && npm uninstall express",
+    "test3x": "npm install express@3.x && mocha && npm uninstall express"
   },
   "repository": {
     "url": "https://github.com/gnowoel/exphbs"
@@ -14,7 +16,6 @@
   },
   "devDependencies": {
     "chai": "*",
-    "express": "^4.12.4",
     "mocha": "*",
     "request": "^2.57.0"
   }
