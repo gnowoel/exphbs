@@ -12,6 +12,12 @@ app.get('/', function(req, res) {
   });
 });
 
+app.get('/another', function(req, res) {
+  res.render('another', {
+    layout: 'layouts/page'
+  });
+});
+
 app.get('/inline', function(req, res) {
   res.render('inline');
 });
