@@ -53,4 +53,22 @@ describe('layouts (nested)', function() {
     });
 
   });
+
+  it('should support deep nested layouts', function(done) {
+
+    var server = app.listen(3000, function() {
+      request('http://localhost:3000/deep', function(err, res, body) {
+        assert.include(body, 'Default');
+        assert.include(body, 'Page');
+        assert.include(body, 'Post');
+        assert.include(body, 'Home');
+        server.close();
+      });
+    })
+
+    server.on('close', function() {
+      done();
+    });
+
+  });
 });

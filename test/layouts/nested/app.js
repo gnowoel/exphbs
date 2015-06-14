@@ -22,4 +22,8 @@ app.get('/inline', function(req, res) {
   res.render('inline');
 });
 
+app.get('/deep', function(req, res) {
+  res.render('deep');
+});
+
 module.exports = app;
