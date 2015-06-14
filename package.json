@@ -11,6 +11,7 @@
   "repository": {
     "url": "https://github.com/gnowoel/exphbs"
   },
+  "keywords": ["express", "handlebars", "template engine", "view engine"],
   "dependencies": {
     "handlebars": "^3.0.3"
   },
