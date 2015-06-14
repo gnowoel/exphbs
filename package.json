@@ -1,6 +1,6 @@
 {
   "name": "exphbs",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A Handlebars view engine for Express (Beta)",
   "license": "MIT",
   "scripts": {
@@ -11,7 +11,12 @@
   "repository": {
     "url": "https://github.com/gnowoel/exphbs"
   },
-  "keywords": ["express", "handlebars", "template engine", "view engine"],
+  "keywords": [
+    "express",
+    "handlebars",
+    "template engine",
+    "view engine"
+  ],
   "dependencies": {
     "handlebars": "^3.0.3"
   },
