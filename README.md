@@ -1,6 +1,6 @@
 # exphbs [![Build Status](https://travis-ci.org/gnowoel/exphbs.svg?branch=master)](https://travis-ci.org/gnowoel/exphbs)
 
-A [Handlebars](https://github.com/wycats/handlebars.js) view engine for [Express](https://github.com/strongloop/express). It's still under development.
+A [Handlebars](https://github.com/wycats/handlebars.js) view engine for [Express](https://github.com/strongloop/express) (Beta).
 
 <table>
   <tr>
@@ -23,7 +23,29 @@ A [Handlebars](https://github.com/wycats/handlebars.js) view engine for [Express
   </tr>
 </table>
 
+## Usage
+
+```bash
+$ npm install exphbs
+```
+
+```javascript
+var express = require('express');
+var exphbs = require('exphbs');
+
+var app = express();
+
+app.engine('hbs', exphbs);
+app.set('view engine', 'hbs');
+```
+
 ## Tests
 
-    $ npm install
-    $ npm test
+```bash
+$ npm install
+$ npm test
+```
+
+## License
+
+MIT
