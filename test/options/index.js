@@ -2,7 +2,7 @@ var assert = require('chai').assert;
 var request = require('request');
 var app = require('./app');
 
-describe('layouts (global)', function() {
+describe('options', function() {
 
   before(function(done) {
     server = app.listen(3000, function() {
@@ -10,7 +10,7 @@ describe('layouts (global)', function() {
     });
   });
 
-  it('can use layout file specified as a global option', function(done) {
+  it('should honor view options', function(done) {
     request('http://localhost:3000/', function(err, res, body) {
       assert.include(body, 'Default');
       assert.include(body, 'Home');
@@ -18,9 +18,17 @@ describe('layouts (global)', function() {
     });
   });
 
-  it('should be override by a local layout', function(done) {
+  it('should still work for a second request', function(done) {
+    request('http://localhost:3000/', function(err, res, body) {
+      assert.include(body, 'Default');
+      assert.include(body, 'Home');
+      done();
+    });
+  });
+
+  it('view options have low priority', function(done) {
     request('http://localhost:3000/override', function(err, res, body) {
-      assert.include(body, 'Page');
+      assert.notInclude(body, 'Default');
       assert.include(body, 'Home');
       done();
     });
