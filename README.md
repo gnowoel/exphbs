@@ -23,7 +23,7 @@ A [Handlebars](https://github.com/wycats/handlebars.js) view engine for [Express
   </tr>
 </table>
 
-It should be usable, even in production, but not all planned features are implemented yet.
+The package is still under development. It should already be usable, but not all planned features are implemented yet.
 
 ## Highlighs
 
@@ -88,9 +88,7 @@ Local options have the highest precedence, which will override the same options 
 Variable `name` is applied each time when rendering a view. In this case, we can use `{{name}}` to get the value in both `index.hbs` and `another.hbs` templates:
 
 ```javascript
-app.locals = {
-  name: 'value';
-};
+app.locals.name = 'value';
 
 app.get('/', function(req, res) {
   res.render('index');
@@ -213,9 +211,7 @@ We can set the `default` layout as default and use the `admin` layout as a speci
 ```javascript
 app.set('views', __dirname + '/views'));
 
-app.locals = {
-  layout: 'layouts/default';
-};
+app.locals.layout = 'layouts/default';
 
 app.get('/', function(req, res) {
   res.render('index');
@@ -306,7 +302,7 @@ var handlebars = require('exphbs').handlebars;
 
 ## Tests
 
-More examples can be found in the `test` directory. Or, just run the tests to get a feature list:
+More examples can be found in the [test](tree/master/test) directory. Or, just run the tests to get a feature list:
 
 ```bash
 $ npm install

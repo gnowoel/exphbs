@@ -7,16 +7,34 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.set('view options', {
-  layout: 'layout'
+  view: 'view',
+  override: 'view',
 });
 
-app.get('/', function(req, res) {
-  res.render('index');
+app.locals.global = 'global';
+app.locals.override = 'global';
+
+app.get('/local', function(req, res) {
+  res.render('local', {
+    local: 'local'
+  });
 });
 
-app.get('/override', function(req, res) {
+app.get('/global', function(req, res) {
+  res.render('global');
+});
+
+app.get('/view', function(req, res) {
+  res.render('view');
+});
+
+app.get('/override1', function(req, res) {
+  res.render('override');
+});
+
+app.get('/override2', function(req, res) {
   res.render('override', {
-    layout: false
+    override: 'local'
   });
 });
 

@@ -10,26 +10,37 @@ describe('options', function() {
     });
   });
 
+  it('should honor local options', function(done) {
+    request('http://localhost:3000/local', function(err, res, body) {
+      assert.include(body, 'local');
+      done();
+    });
+  });
+
+  it('should honor global options', function(done) {
+    request('http://localhost:3000/global', function(err, res, body) {
+      assert.include(body, 'global');
+      done();
+    });
+  });
+
   it('should honor view options', function(done) {
-    request('http://localhost:3000/', function(err, res, body) {
-      assert.include(body, 'Default');
-      assert.include(body, 'Home');
+    request('http://localhost:3000/view', function(err, res, body) {
+      assert.include(body, 'view');
       done();
     });
   });
 
-  it('should still work for a second request', function(done) {
-    request('http://localhost:3000/', function(err, res, body) {
-      assert.include(body, 'Default');
-      assert.include(body, 'Home');
+  it('global options will override view options', function(done) {
+    request('http://localhost:3000/override1', function(err, res, body) {
+      assert.include(body, 'global');
       done();
     });
   });
 
-  it('view options have low priority', function(done) {
-    request('http://localhost:3000/override', function(err, res, body) {
-      assert.notInclude(body, 'Default');
-      assert.include(body, 'Home');
+  it('local options will override global options', function(done) {
+    request('http://localhost:3000/override2', function(err, res, body) {
+      assert.include(body, 'local');
       done();
     });
   });
