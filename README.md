@@ -23,18 +23,18 @@ A [Handlebars](https://github.com/wycats/handlebars.js) view engine for [Express
   </tr>
 </table>
 
-It should be usable, even in production, but not all planned features are implemented.
+It should be usable, even in production, but not all planned features are implemented yet.
 
-## Feature highlighs
+## Highlighs
 
 Layouts:
 
-  * Layout comment (`{{!< layouts}}`)
+  * Declaring layout with a comment (`{{!< layouts}}`)
   * Nested layouts with arbitrary depth
 
 Variables:
 
-  * Handlebars data channel (`@data`)
+  * Defining variables in Handlebars data channel (`{{@variable}}`)
 
 Caching:
 
@@ -49,7 +49,7 @@ Install `exphbs`:
 $ npm install exphbs
 ```
 
-Register `exphbs` for rendering `.hbs` templates.
+Register `exphbs` for rendering `.hbs` templates:
 
 ```javascript
 var express = require('express');
@@ -264,7 +264,7 @@ Sometimes it's convenient to have a layout belong to another layout. For example
 </html>
 ```
 
-*views/layouts/post*
+*views/layouts/post.hbs*
 
 ```html
 {{!< layouts/default}}
@@ -276,7 +276,7 @@ Sometimes it's convenient to have a layout belong to another layout. For example
 </main>
 ```
 
-*views/layouts/post.hbs*
+*views/layouts/page.hbs*
 
 ```html
 {{!< layouts/default}}
@@ -288,7 +288,7 @@ Sometimes it's convenient to have a layout belong to another layout. For example
 </main>
 ```
 
-There are no limit on the depth of the nesting, as long as the layouts are not circular referenced.
+There are no limit on the depth of the nesting, as long as the layouts are not circular referenced. But exphbs would be smart enough to detect this kind of error.
 
 The layout options and layout comments can be mixed. It's allowed to use a layout comment for a template and a render option for its parent, or the other way around.
 

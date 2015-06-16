@@ -47,6 +47,16 @@ describe('layouts (nested)', function() {
     });
   });
 
+  it('should detect circular references', function(done) {
+    process.stderr.write = function() {};
+
+    request('http://localhost:3000/circular', function(err, res, body) {
+      assert.include(body, 'Layouts are circular referenced');
+      assert.notInclude(body, 'Home');
+      done();
+    });
+  });
+
   after(function(done) {
     server.close(function() {
       done();

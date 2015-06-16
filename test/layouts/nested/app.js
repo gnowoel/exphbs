@@ -26,4 +26,8 @@ app.get('/deep', function(req, res) {
   res.render('deep');
 });
 
+app.get('/circular', function(req, res) {
+  res.render('circular');
+});
+
 module.exports = app;
