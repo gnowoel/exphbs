@@ -10,32 +10,24 @@ describe('variables', function() {
     });
   });
 
-  it('should interpolate local variables passed as render options', function(done) {
-    request('http://localhost:3000/', function(err, res, body) {
-      assert.include(body, 'Home');
+  it('should honor local @variables', function(done) {
+    request('http://localhost:3000/local', function(err, res, body) {
+      assert.include(body, 'local');
       done();
     });
   });
 
-  it('should interpolate global variables', function(done) {
-    request('http://localhost:3000/globals', function(err, res, body) {
-      assert.include(body, 'Global');
+
+  it('should honor global @variables', function(done) {
+    request('http://localhost:3000/global', function(err, res, body) {
+      assert.include(body, 'global');
       done();
     });
   });
 
-  it('should interpolate local variables in layout', function(done) {
-    request('http://localhost:3000/local-layout', function(err, res, body) {
-      assert.include(body, 'Default');
-      assert.include(body, 'Home');
-      done();
-    });
-  });
-
-  it('should interpolate global variables in layout', function(done) {
-    request('http://localhost:3000/global-layout', function(err, res, body) {
-      assert.include(body, 'Page');
-      assert.include(body, 'Home');
+  it('local @variables should override global @variables', function(done) {
+    request('http://localhost:3000/override', function(err, res, body) {
+      assert.include(body, 'local');
       done();
     });
   });

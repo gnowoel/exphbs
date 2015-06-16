@@ -123,27 +123,37 @@ Global options and view options are useful for setting default values. For a spe
 
 ## Variables
 
-A variable can be defined as a [render option](#render-options). In the above section, we have seen examples for defining a variable in three different ways (as a local option, a global option and a view option).
+A variable can be defined as a [render option](#render-options). In the above section, we have seen examples for defining a variable in three different ways (a local option, a global option and a view option).
 
-There is a forth way to define a variable. Handlebars provides a special data channel and we can define a variable there. The variables defined this way will then be accessible in syntax `{{@variable}}`.
+We can also define a variable in handlebars data channel. These variables can either be global or local ones, and can later be accessed in the templates with syntax `{{@variable}}`.
 
-Here is an example to use this feature:
+Here is an example of defining a global @variable::
 
 ```javascript
 app.locals.data = {
-  name: value;
+  name: 'value';
 };
 
 app.get('/', function(req, res) {
   res.render('index');
 });
+```
 
-app.get('/another', function(req, res) {
-  res.render('another');
+Alternatively, we can define it locally:
+
+```javascript
+app.get('/', function(req, res) {
+  res.render('index', {
+    data: {
+      name: 'another value'
+    }
+  });
 });
 ```
 
-The properties of `app.locals.data` will be available as variables in Handlebars data channel. They are globally applied to any view when rendering. In this example, we can use `{{@name}}` in both `index.hbs` and `another.hbs` to get the value of the variable.
+In both examples, we use `{{@name}}` in the templates to access the variable.
+
+Like render options, a local @variable will override a global one with the same name.
 
 ## Layouts
 

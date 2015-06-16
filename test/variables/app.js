@@ -7,29 +7,28 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.locals.data = {
-  title: 'Global',
-  page: 'Page'
+  global: 'global',
+  override: 'global'
 }
 
-app.get('/', function(req, res) {
-  res.render('index', {
-    title: 'Home'
+app.get('/local', function(req, res) {
+  res.render('local', {
+    data: {
+      local: 'local'
+    }
   });
 });
 
-app.get('/globals', function(req, res) {
-  res.render('globals');
+app.get('/global', function(req, res) {
+  res.render('global');
 });
 
-app.get('/local-layout', function(req, res) {
-  res.render('local-layout', {
-    layout: 'layouts/page',
-    default: 'Default',
+app.get('/override', function(req, res) {
+  res.render('override', {
+    data: {
+      override: 'local'
+    }
   });
-});
-
-app.get('/global-layout', function(req, res) {
-  res.render('global-layout');
 });
 
 module.exports = app;
