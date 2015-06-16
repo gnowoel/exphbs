@@ -240,7 +240,7 @@ A layout name like `layouts/default` or `layouts/admin` is just the path of the 
 
 ### Layout comment
 
-Alternative to a render option, a layout can be specified in the template with a special comment. Take the example from the previous section, instead of using a local option, we can set a layout for the `admin` template by adding a line in the file `view/admin.hbs`:
+Alternative to a render option, a layout can be specified in the template with a special comment. Take the example from the previous section, instead of using a local option, we can declare a layout for the `admin` template by adding a line in the file `view/admin.hbs`:
 
 ```
 {{!< layouts/admin}}
@@ -248,7 +248,7 @@ Alternative to a render option, a layout can be specified in the template with a
 
 This comment line can be put anywhere in the template file, but it's conventional to put it on top to make it stand out.
 
-The layout specifed with a comment has higher precedence. If we also set a layout with a render option, the one in the comment will be used.
+The layout specified with a comment has higher precedence. If we also set a layout with a render option, the one in the comment will be used.
 
 ### Nested layouts
 
@@ -312,7 +312,7 @@ var handlebars = require('exphbs').handlebars;
 
 ## Tests
 
-More examples can be found in the [test](tree/master/test) directory. Or, just run the tests to get a feature list:
+More examples can be found in the [test](test) directory. Or, just run the tests to get a feature list:
 
 ```bash
 $ npm install

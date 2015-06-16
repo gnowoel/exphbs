@@ -14,4 +14,10 @@ app.get('/directory', function(req, res) {
   res.render('directory');
 });
 
+app.get('/override', function(req, res) {
+  res.render('override', {
+    layout: 'layout'
+  });
+});
+
 module.exports = app;

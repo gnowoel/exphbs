@@ -26,6 +26,15 @@ describe('layouts (inline)', function() {
     });
   });
 
+  it('layout specified as inline comment should override the one in options', function(done) {
+    request('http://localhost:3000/override', function(err, res, body) {
+      assert.notInclude(body, 'Default');
+      assert.include(body, 'Page');
+      assert.include(body, 'Home');
+      done();
+    });
+  });
+
   after(function(done) {
     server.close(function() {
       done();
