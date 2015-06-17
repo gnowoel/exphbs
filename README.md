@@ -151,7 +151,11 @@ app.get('/', function(req, res) {
 });
 ```
 
-In both examples, we use `{{@name}}` in the templates to access the variable.
+In both examples, we use `{{@name}}` in the templates to access the variable, like this:
+
+```html
+<p>The value is {{@name}}.</p>
+```
 
 Like render options, a local @variable will override a global one with the same name.
 
