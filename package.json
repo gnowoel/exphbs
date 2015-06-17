@@ -19,6 +19,7 @@
     "view engine"
   ],
   "dependencies": {
+    "glob": "^5.0.10",
     "handlebars": "^3.0.3"
   },
   "devDependencies": {

@@ -2,7 +2,7 @@ require('./engine');
 require('./render');
 require('./options');
 require('./variables');
-require('./helpers');
 require('./partials');
+require('./helpers');
 require('./layouts');
 require('./cache');
