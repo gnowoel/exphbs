@@ -1,6 +1,6 @@
 # exphbs [![Build Status](https://travis-ci.org/gnowoel/exphbs.svg?branch=master)](https://travis-ci.org/gnowoel/exphbs)
 
-A [Handlebars](https://github.com/wycats/handlebars.js) view engine for [Express](https://github.com/strongloop/express).
+A [Handlebars](https://github.com/wycats/handlebars.js) view engine for [Express](https://github.com/strongloop/express) 4.x/3.x, with Node.js and io.js support.
 
 <table>
   <tr>
@@ -23,7 +23,7 @@ A [Handlebars](https://github.com/wycats/handlebars.js) view engine for [Express
   </tr>
 </table>
 
-## Highlighs
+## Feature highlighs
 
 Layouts:
 
