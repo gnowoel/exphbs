@@ -1,6 +1,6 @@
 # exphbs [![Build Status](https://travis-ci.org/gnowoel/exphbs.svg?branch=master)](https://travis-ci.org/gnowoel/exphbs)
 
-A [Handlebars](https://github.com/wycats/handlebars.js) view engine for [Express](https://github.com/strongloop/express), compatible with Node.js and io.js, Express 4.x or 3.x.
+A [Handlebars](https://github.com/wycats/handlebars.js) view engine for [Express](https://github.com/strongloop/express).
 
 <table>
   <tr>
@@ -23,8 +23,6 @@ A [Handlebars](https://github.com/wycats/handlebars.js) view engine for [Express
   </tr>
 </table>
 
-The package is still under development. It should already be usable, but not all planned features are implemented yet.
-
 ## Highlighs
 
 Layouts:
@@ -42,7 +40,7 @@ Variables:
 
   * Defining variables in Handlebars data channel (`{{@variable}}`)
 
-Caching:
+Precompiling:
 
   * Compiled templates are cached in production
 
