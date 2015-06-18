@@ -34,7 +34,7 @@ describe('partials (production (add))', function() {
 
   it('should generate an error when including nonexistent partials', function(done) {
     request('http://localhost:3000/', function(err, res, body) {
-      assert.include(body, 'Internal Server Error');
+      assert.include(body, 'Error');
       done();
     });
   });
@@ -45,7 +45,7 @@ describe('partials (production (add))', function() {
       if (err) return done(err);
 
       request('http://localhost:3000/', function(err, res, body) {
-        assert.include(body, 'Internal Server Error');
+        assert.include(body, 'Error');
 
         done();
       });
