@@ -42,7 +42,7 @@ Variables:
 
 Precompiling:
 
-  * Compiled templates are cached in production
+  * Templates and partials are precompiled and cached in production
 
 
 ## Getting started
@@ -376,7 +376,9 @@ app.set('view partials', path.join(__dirname, 'views', 'custom'));
 
 Now, the partials in `views/custom` directory will be autoloaded.
 
-During development, the changes in a partial will be applied dynamically. There's no need to restart the server just because of an updated partial.
+Changes in a partial will be applied dynamically during development. No need to restart the server just because of an updated partial.
+
+But in production, the partials are precompiled and cached. They are always available even if the underlying files are changed or deleted.
 
 ## Helpers
 
