@@ -23,7 +23,7 @@ A [Handlebars](https://github.com/wycats/handlebars.js) view engine for [Express
   </tr>
 </table>
 
-## Feature highlighs
+## Feature highlights
 
 Layouts:
 
@@ -38,20 +38,26 @@ Partials:
 
 Variables:
 
-  * Defining variables in Handlebars data channel (`{{@variable}}`)
+  * Defining `@variables` which are accessible in any context
 
 Precompiling:
 
   * Templates and partials are precompiled and cached in production
 
+Instances:
 
-## Getting started
+  * Creating a new instance of separate cache
+  * Using with custom Handlebars object
+
+## Installation
 
 Install `exphbs`:
 
 ```bash
 $ npm install exphbs
 ```
+
+## View engine
 
 Register `exphbs` for rendering `.hbs` templates:
 
@@ -62,6 +68,30 @@ var app = express();
 app.engine('hbs', require('exphbs'));
 app.set('view engine', 'hbs');
 ```
+
+Sometimes, we may want to use more than one instances of the view engine, with each using its own template cache and partial registry. This would be the case when embedding an Express app in another. Use `create()` method to create a new instance:
+
+```javascript
+var express = require('express');
+var exphbs = require('exphbs');
+var app = express();
+
+app.engine('hbs', exphbs.create());
+app.set('view engine', 'hbs');
+```
+
+Optionally, we can instantiate it with a custom Handlebars object. This is useful when we want to use a different version of Handlebars than the one comes with exphbs:
+
+```
+var handlebars = require('handlebars');
+var express = require('express');
+var exphbs = require('exphbs');
+var app = express();
+
+app.engine('hbs', exphbs.create(handlebars));
+app.set('view engine', 'hbs');
+```
+
 
 ## Render options
 
@@ -129,7 +159,7 @@ Global options and view options are useful for setting default values. For a spe
 
 A variable can be defined as a [render option](#render-options). In the above section, we have seen examples for defining a variable in three different ways (a local option, a global option and a view option).
 
-We can also define a variable in handlebars data channel. These variables can either be global or local ones, and can later be accessed in the templates with syntax `{{@variable}}`.
+We can also define a variable in Handlebars data channel. These variables can either be global ones, which applies whenever `render()` is executed, or local ones, which applies to the current `render()` method. In both cases, they can be accessed in the templates with syntax `{{@variable}}`.
 
 Here is an example of defining a global @variable::
 
@@ -155,13 +185,39 @@ app.get('/', function(req, res) {
 });
 ```
 
-In both examples, we use `{{@name}}` in the templates to access the variable, like this:
+In the templates, we use `{{@name}}` to access the variable, as shown below:
 
 ```html
 <p>The value is {{@name}}.</p>
 ```
 
-Like render options, a local @variable will override a global one with the same name.
+Local `@variables` have higher precedence than the global ones. If we define the same `@variable` in both ways, the local one will be used.
+
+`@variables` are different from render options in that they can be accessed in any context. So, it's handy to use them for commonly used variables like `@siteName` or `@currentUser`.
+
+In the following example, we will define `@production` to check if it's running in production:
+
+```
+app.locals.data = {
+  production: app.get('env') === 'production'
+};
+```
+
+After that, we can use it to check the environment anywhere in the templates:
+
+```
+{{#if production}}
+  <!-- do something -->
+{{/if}}
+
+{{#anotherContext}}
+
+  {{#if production}}
+    <!-- do something -->
+  {{/if}}
+
+{{/anotherContext}}
+```
 
 ## Layouts
 
