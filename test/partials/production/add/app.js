@@ -3,7 +3,7 @@ var express = require('express');
 var exphbs = require('../../../..');
 var app = express();
 
-app.engine('hbs', exphbs);
+app.engine('hbs', exphbs.create());
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 
