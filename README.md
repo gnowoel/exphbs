@@ -205,14 +205,14 @@ app.locals.data = {
 
 After that, we can use it to check the environment anywhere in the templates:
 
-```
-{{#if production}}
+```html
+{{#if @production}}
   <!-- do something -->
 {{/if}}
 
 {{#anotherContext}}
 
-  {{#if production}}
+  {{#if @production}}
     <!-- do something -->
   {{/if}}
 
