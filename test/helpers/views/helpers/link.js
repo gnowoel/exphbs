@@ -1,4 +1,4 @@
-var exphbs = require('../..');
+var exphbs = require('../../../..');
 var handlebars = exphbs.handlebars;
 
 handlebars.registerHelper('link', function(object) {

@@ -32,7 +32,7 @@ Layouts:
 
 Partials:
 
-  * Autoloading partials in a given directory (default: `views/partials`)
+  * Autoloading partials in a specified directory (default: `views/partials`)
   * Partial names are namespaced based on the relative paths
   * Dynamically applying changes in partials during development
 
@@ -46,8 +46,8 @@ Precompiling:
 
 Instances:
 
-  * Creating a new instance of separate cache
-  * Using with custom Handlebars object
+  * Creating a new instance of its own cache
+  * Instantiating with user-provided Handlebars object
 
 ## Quick start
 
@@ -64,7 +64,7 @@ app.engine('hbs', require('exphbs'));
 app.set('view engine', 'hbs');
 ```
 
-File structure:
+Default file structure:
 
 ```
 .

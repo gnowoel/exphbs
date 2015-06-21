@@ -1,6 +1,5 @@
 var path = require('path');
 var express = require('express');
-var helpers = require('./helpers');
 var app = express();
 
 app.engine('hbs', require('../..'));
