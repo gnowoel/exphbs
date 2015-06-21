@@ -38,7 +38,7 @@ Partials:
 
 Variables:
 
-  * Defining `@variables` which are accessible in any context
+  * Defining `@variables` which are accessible in any template context
 
 Precompiling:
 
@@ -193,7 +193,7 @@ In the templates, we use `{{@name}}` to access the variable, as shown below:
 
 Local `@variables` have higher precedence than the global ones. If we define the same `@variable` in both ways, the local one will be used.
 
-`@variables` are different from render options in that they can be accessed in any context. So, it's handy to use them for commonly used variables like `@siteName` or `@currentUser`.
+`@variables` are different from render options in that they can be accessed in any template context. So, it's handy to use them for commonly used variables like `@siteName` or `@currentUser`.
 
 In the following example, we will define `@production` to check if it's running in production:
 
@@ -225,7 +225,7 @@ exphbs supports flexible layouts. You can set a layout as a render option or a s
 
 ### Content interpolation
 
-A layout file is just a normal Handlebars template. But we put a ```{{{body}}}``` tag in the file as a placeholder where the content being rendered will be inserted.
+A layout file is just a normal Handlebars template. But we put a ```{{{body}}}``` tag in the file as a placeholder where the rendered content will be inserted.
 
 Suppose we can have a layout like this:
 
@@ -243,13 +243,13 @@ Suppose we can have a layout like this:
 </html>
 ```
 
-And an page template as below:
+And a page template as below:
 
 ```html
 <h1>Hello world!</h1>
 ```
 
-The result of rendering the page would be:
+The resulting HTML of the rendered page would be:
 
 ```html
 <!DOCTYPE html>
@@ -265,6 +265,24 @@ The result of rendering the page would be:
 </html>
 ```
 
+### Layout names
+
+A layout is specified with its name. A layout name is the path relative to the directory where we put layout files. By default, the layouts should be save under `views/layouts`.
+
+Suppose we have a layout file `views/layouts/default.hbs`, the name will be `default`. File extension can be included, so `default.hbs` will also work.
+
+The subdirectory of the path is respected. A layout file named `default.hbs` in `views/layouts/page ` would have name `page/default`.
+
+The layouts directory can be customized with the `view layouts` application setting. For example:
+
+```javascript
+var path = require('path');
+
+app.set('view layouts', path.join(__dirname, `views`, `custom`));
+```
+
+In this case, all layout names would be relative paths to the `views/custom` directory.
+
 ### Layout option
 
 A layout can be specified as a [render option](#render-options). As an example, suppose we have a `default` layout and an `admin` layout, with the file structure as below:
@@ -275,7 +293,7 @@ A layout can be specified as a [render option](#render-options). As an example, 
 └─┬ view/
   ├── admin.hbs
   ├── index.hbs
-  └─┬ 
+  └─┬ layouts/
     ├── admin.hbs
     └── default.hbs
 ```
@@ -300,7 +318,15 @@ app.get('/admin', function(req, res) {
 
 In this example, the `/` page would use the `default` layout, and the `admin` page would use `admin`.
 
-A layout name like `default` or `admin` is just the path of the template file, relative to the `views` directory of the application. The file extension is optional. So both `default.hbs` and `default` would work.
+A layout name like `default` or `admin` is just the relative path of the template file. By default, the path is relative to `views/layouts`, but we can customize the layouts path with `view layouts` application setting:
+
+```javascript
+var path = require('path');
+
+app.set('view layouts', path.join(__dirname, 'views', 'custom');
+```
+
+When specifying a layout, the file extension is optional. Both `default.hbs` and `default` would work.
 
 ### Layout comment
 
