@@ -8,13 +8,13 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', function(req, res) {
   res.render('index', {
-    layout: 'layouts/page'
+    layout: 'page'
   });
 });
 
 app.get('/another', function(req, res) {
   res.render('another', {
-    layout: 'layouts/page'
+    layout: 'page'
   });
 });
 

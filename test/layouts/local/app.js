@@ -8,25 +8,25 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', function(req, res) {
   res.render('index', {
-    layout: 'layout'
+    layout: 'default'
   });
 });
 
 app.get('/extension', function(req, res) {
   res.render('index', {
-    layout: 'layout.hbs'
+    layout: 'default.hbs'
   });
 });
 
 app.get('/directory', function(req, res) {
   res.render('index', {
-    layout: 'layouts/page'
+    layout: 'shared/page'
   });
 });
 
 app.get('/directory-extention', function(req, res) {
   res.render('index', {
-    layout: 'layouts/page.hbs'
+    layout: 'shared/page.hbs'
   });
 });
 

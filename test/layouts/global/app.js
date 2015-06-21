@@ -6,7 +6,7 @@ app.engine('hbs', require('../../..'));
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 
-app.locals.layout = 'layout';
+app.locals.layout = 'default';
 
 app.get('/', function(req, res) {
   res.render('index');
@@ -14,7 +14,7 @@ app.get('/', function(req, res) {
 
 app.get('/override', function(req, res) {
   res.render('index', {
-    layout: 'layouts/page.hbs'
+    layout: 'page.hbs'
   });
 });
 

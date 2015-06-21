@@ -16,7 +16,7 @@ app.get('/directory', function(req, res) {
 
 app.get('/override', function(req, res) {
   res.render('override', {
-    layout: 'layout'
+    layout: 'default'
   });
 });
 

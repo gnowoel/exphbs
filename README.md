@@ -275,7 +275,7 @@ A layout can be specified as a [render option](#render-options). As an example, 
 └─┬ view/
   ├── admin.hbs
   ├── index.hbs
-  └─┬ layouts/
+  └─┬ 
     ├── admin.hbs
     └── default.hbs
 ```
@@ -285,7 +285,7 @@ We can set the `default` layout as default and use the `admin` layout as a speci
 ```javascript
 app.set('views', __dirname + '/views'));
 
-app.locals.layout = 'layouts/default';
+app.locals.layout = 'default';
 
 app.get('/', function(req, res) {
   res.render('index');
@@ -293,21 +293,21 @@ app.get('/', function(req, res) {
 
 app.get('/admin', function(req, res) {
   res.render('admin', {
-    layout: 'layouts/admin'
+    layout: 'admin'
   });
 });
 ```
 
-In this example, the `/` page would use the `layouts/default` layout, and the `admin` page would use `layouts/admin`.
+In this example, the `/` page would use the `default` layout, and the `admin` page would use `admin`.
 
-A layout name like `layouts/default` or `layouts/admin` is just the path of the template file, relative to the `views` directory of the application. The file extension is optional. So both `layouts/default.hbs` and `layouts/default` would work.
+A layout name like `default` or `admin` is just the path of the template file, relative to the `views` directory of the application. The file extension is optional. So both `default.hbs` and `default` would work.
 
 ### Layout comment
 
 Alternative to a render option, a layout can be specified in the template with a special comment. Take the example from the previous section, instead of using a local option, we can declare a layout for the `admin` template by adding a line in the file `view/admin.hbs`:
 
 ```
-{{!< layouts/admin}}
+{{!< admin}}
 ```
 
 This comment line can be put anywhere in the template file, but it's conventional to put it on top to make it stand out.
@@ -318,7 +318,7 @@ The layout specified with a comment has higher precedence. If we also set a layo
 
 Sometimes it's convenient to have a layout belong to another layout. For example, if we are building a blogging software, we would like to have a `post` layout and a `page` layout. Since these two layouts share a large chunk of code, we could add a `default` layout as the parent of both.
 
-*views/layouts/default.hbs*
+*views/default.hbs*
 
 ```html
 <!DOCTYPE html>
@@ -334,10 +334,10 @@ Sometimes it's convenient to have a layout belong to another layout. For example
 </html>
 ```
 
-*views/layouts/post.hbs*
+*views/post.hbs*
 
 ```html
-{{!< layouts/default}}
+{{!< default}}
 
 <main id="post">
 
@@ -346,10 +346,10 @@ Sometimes it's convenient to have a layout belong to another layout. For example
 </main>
 ```
 
-*views/layouts/page.hbs*
+*views/page.hbs*
 
 ```html
-{{!< layouts/default}}
+{{!< default}}
 
 <main id="page">
 
