@@ -32,13 +32,17 @@ Layouts:
 
 Partials:
 
-  * Autoloading partials in a specified directory (default: `views/partials`)
+  * Autoloading partials from defined directory (default: `views/partials`)
   * Partial names are namespaced based on the relative paths
-  * Dynamically applying changes in partials during development
+  * Changes in a partial will be dynamically applied during development
+
+Helpers:
+
+  * Autoloading helpers from defined directory (default: `views/helpers`)
 
 Variables:
 
-  * Defining `@variables` which are accessible in any template context
+  * Defining `@variables` that are accessible in any template context
 
 Precompiling:
 
@@ -64,7 +68,7 @@ app.engine('hbs', require('exphbs'));
 app.set('view engine', 'hbs');
 ```
 
-Default file structure:
+Default directory structure:
 
 ```
 .
