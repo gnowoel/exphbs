@@ -2,7 +2,7 @@ var path = require('path');
 var express = require('express');
 var app = express();
 
-app.engine('hbs', require('../..'));
+app.engine('hbs', require('../..').create());
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 
