@@ -57,7 +57,7 @@ Instances:
   * Creating a new instance of separate cache
   * Instantiating with user-provided Handlebars object
 
-## Overview
+## Getting started
 
 Installation:
 
@@ -83,6 +83,10 @@ Default directory structure:
   ├── layouts/
   └── partials/
 ```
+
+## Example
+
+Check [example](example) directory for a complete example.
 
 ## Docs
 
