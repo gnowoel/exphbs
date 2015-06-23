@@ -8,7 +8,6 @@ exphbs also exposes the vanilla `handlebars` object, which can be used to regist
 
 ## Autoloading
 
-
 A helper module should expose a single function with signature `function(handlebars)`. The filename (without extension) of the module will be used as the helper name.
 
 If we create a file `hello.js` with following content under `views/helpers`:

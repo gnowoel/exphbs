@@ -36,7 +36,7 @@ In the templates, we use `{{@name}}` to access the variable, as shown below:
 
 Local `@variables` have higher precedence than the global ones. If we define the same `@variable` in both ways, the local one will be used.
 
-`@variables` are different from render options in that they can be accessed in any template context. So, it's handy to use them for commonly used variables like `@siteName` or `@currentUser`.
+`@variables` are different from render options in that they can be accessed from any context in a template. So, it's handy to use them for commonly used variables like `@siteName` or `@currentUser`.
 
 In the following example, we will define `@production` to check if it's running in production:
 

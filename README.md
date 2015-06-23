@@ -27,7 +27,7 @@ A [Handlebars](https://github.com/wycats/handlebars.js) view engine for [Express
 
 Layouts:
 
-  * Declaring layout with a comment (`{{!< layouts}}`)
+  * Declaring layout with a render option or template comment (`{{!< layouts}}`)
   * Nested layouts with arbitrary depth
 
 Partials:
@@ -42,7 +42,7 @@ Helpers:
 
 Variables:
 
-  * Defining `@variables` that are accessible in any template context
+  * Defining `@variables` that can be accessed from any context in a template
 
 Precompiling:
 
@@ -53,7 +53,7 @@ Instances:
   * Creating a new instance of its own cache
   * Instantiating with user-provided Handlebars object
 
-## Quick start
+## Overview
 
 Installation:
 
@@ -80,7 +80,7 @@ Default directory structure:
   └── partials/
 ```
 
-## Documentation
+## Docs
 
   * [View engine](docs/engine.md)
   * [Render options](docs/options.md)

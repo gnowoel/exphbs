@@ -15,8 +15,8 @@
     "express",
     "handlebars",
     "hbs",
-    "template engine",
-    "view engine"
+    "layouts",
+    "partials"
   ],
   "dependencies": {
     "glob": "^5.0.10",
