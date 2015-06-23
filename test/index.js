@@ -5,4 +5,5 @@ require('./variables');
 require('./layouts');
 require('./partials');
 require('./helpers');
+require('./blocks');
 require('./cache');
