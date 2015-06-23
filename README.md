@@ -27,18 +27,22 @@ A [Handlebars](https://github.com/wycats/handlebars.js) view engine for [Express
 
 Layouts:
 
-  * Declaring layout with a render option or template comment (`{{!< layouts}}`)
+  * Declaring layout with a render option or template comment (`{{!< layout}}`)
   * Nested layouts with arbitrary depth
 
 Partials:
 
-  * Autoloading partials from defined directory (default: `views/partials`)
-  * Partial names are namespaced based on the relative paths
-  * Changes in a partial will be dynamically applied during development
+  * Autoloading from defined directory (default: `views/partials`)
+  * Namespaced partial names (based on relative paths)
+  * Dynamically applying changes during development
 
 Helpers:
 
-  * Autoloading helpers from defined directory (default: `views/helpers`)
+  * Autoloading from defined directory (default: `views/helpers`)
+
+Block inheritance:
+
+  * Defining named blocks in layouts then extend them in templates
 
 Variables:
 
@@ -50,7 +54,7 @@ Precompiling:
 
 Instances:
 
-  * Creating a new instance of its own cache
+  * Creating a new instance of separate cache
   * Instantiating with user-provided Handlebars object
 
 ## Overview
@@ -88,6 +92,7 @@ Default directory structure:
   * [Layouts](docs/layouts.md)
   * [Partials](docs/partials.md)
   * [Helpers](docs/helpers.md)
+  * [Block inheritance](docs/blocks.md)
 
 ## Tests
 
