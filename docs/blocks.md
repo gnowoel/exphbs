@@ -5,11 +5,7 @@ exphbs supports block inheritance as seen in other template engines. Start by de
 *views/layouts/default.hbs*
 
 ```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-  </head>
+<html>
   <body>
 
     {{#block "header"}}
@@ -41,11 +37,7 @@ Then extend the block in a template that uses the layout:
 When rendering, the content of the `extend` helper will override the default content of the block. In this example, the resulting HTML would be:
 
 ```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-  </head>
+<html>
   <body>
 
     <h1>Home page</h1>

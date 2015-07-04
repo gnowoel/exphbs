@@ -1,16 +1,14 @@
 # Helpers
 
-Modules located in a defined directory will be autoloaded as view helpers. By default, the directory is `views/helpers`. But we can customize it with `view helpers` application setting.
+By default, modules located in `views/helpers` will be autoloaded as view helpers. The directory can be customized with the `view helpers` application setting. Note subdirectories are not supported. A module in a subdirectory will be simply ignored.
 
-Note subdirectories are not supported. A module in a subdirectory will be simply ignored.
-
-exphbs also exposes the vanilla `handlebars` object, which can be used to register helpers if you prefer doing it manually.
+exphbs also exposes the vanilla `handlebars` object, which can be used to manually register helpers.
 
 ## Autoloading
 
-A helper module should expose a single function with signature `function(handlebars)`. The filename (without extension) of the module will be used as the helper name.
+A helper module should expose a single function with signature `function(handlebars)`. When registering, the filename (without extension) of the module will be used as the helper name.
 
-If we create a file `hello.js` with following content under `views/helpers`:
+Suppose we create a file `views/helpers/hello.js` with the following content:
 
 ```javascript
 module.exports = function(handlebars) {
@@ -20,13 +18,13 @@ module.exports = function(handlebars) {
 }
 ```
 
-The `hello` helper will be automatically registered. And we can use it in the templates as below:
+The `hello` helper will be automatically registered. We can use the helper in a template as below:
 
 ```html
 {{hello}}
 ```
 
-After rendering, the resulting HTML would be:
+The resulting HTML will be:
 
 ```html
 Hello!
@@ -34,19 +32,17 @@ Hello!
 
 ## Custom directory
 
-We can change the helpers directory by customize `view helpers` application setting, for example:
+The default directory for helpers is `views/helpers`. We can customize it by changing the `view helpers` application setting. For example:
 
 ```javascript
 app.set('view helpers', __dirname + '/custom');
 ```
 
-## Vanilla handlebars
+Now, the helpers in `views/custom` directory will be autoloaded.
 
-We can use the exposed `handlebars` object to register a helper manually.
+## Manually registering
 
-Here's an example:
-
-*helper.js*
+The exposed `handlebars` object can be used to manually register a helper. Here's an example:
 
 ```javascript
 var exphbs = require('exphbs');
@@ -57,19 +53,13 @@ handlebars.registerHelper('hello', function() {
 });
 ```
 
-Then require the file as normal:
-
-*app.js*
+Suppose it's saved in `helper.js`. We just require it to run the code:
 
 ```javascript
 require('./helper');
 ```
 
-However, if we use a new instance of exphbs, we have to pass along the `handlebars` object across modules, since a new instance of exphbs creates a new instance of Handlebars.
-
-Here's the updated code:
-
-*helper.js*
+If we use `exphbs.create()` to create a new instance of Handlebars, the instance must be passed around. The updated code would look like:
 
 ```javascript
 
@@ -80,10 +70,11 @@ module.exports = function(handlebars) {
 };
 ```
 
-*app.js*
+When requiring, we pass in the Handlebars object:
 
 ```javascript
 var exphbs = require('exphbs').create();
+var handlebars = exphbs.handlebars;
 
-require('./helper')(exphbs.handlebars);
+require('./helper')(handlebars);
 ```
