@@ -19,12 +19,12 @@
     "partials"
   ],
   "dependencies": {
-    "glob": "^5.0.10",
+    "glob": "^5.0.13",
     "handlebars": "^3.0.3"
   },
   "devDependencies": {
     "chai": "*",
     "mocha": "*",
-    "request": "^2.57.0"
+    "request": "^2.58.0"
   }
 }
