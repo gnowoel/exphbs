@@ -6,7 +6,7 @@ app.set('view engine', 'hbs');
 
 app.locals.data = {
   site: 'Example'
-}
+};
 
 app.get('/', function(req, res) {
   res.render('index', {

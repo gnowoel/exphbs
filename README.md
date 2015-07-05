@@ -86,7 +86,7 @@ Default directory structure:
 
 ## Example
 
-Check [example](example) directory for a complete example.
+Check out [example](example) directory for a complete example. You can play around with it on [Runnable](http://code.runnable.com/VZi1SrKlnf0d4_ps/expresss-handlebars-example-for-node-js).
 
 ## Docs
 
