@@ -32,13 +32,13 @@ Layouts:
 
 Partials:
 
-  * Autoloading from defined directory (default: `views/partials`)
+  * Autoloading from defined directory (defaults to `views/partials`)
   * Namespaced partial names (based on relative paths)
   * Dynamically applying changes during development
 
 Helpers:
 
-  * Autoloading from defined directory (default: `views/helpers`)
+  * Autoloading from defined directory (defaults to `views/helpers`)
 
 Block inheritance:
 
