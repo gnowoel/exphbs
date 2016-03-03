@@ -5,18 +5,21 @@ A [Handlebars](https://github.com/wycats/handlebars.js) view engine for [Express
 <table>
   <tr>
     <td></td>
-    <td>Node.js 0.12.x</td>
-    <td>Node.js 0.10.x</td>
-    <td>io.js 2.x</td>
+    <td>Node.js 5.7</td>
+    <td>Node.js 4.3</td>
+    <td>Node.js 0.12</td>
+    <td>Node.js 0.10</td>
   </tr>
   <tr>
-    <td>Express 4.x</td>
+    <td>Express 4</td>
+    <td>✓</td>
     <td>✓</td>
     <td>✓</td>
     <td>✓</td>
   </tr>
   <tr>
-    <td>Express 3.x</td>
+    <td>Express 3</td>
+    <td>✓</td>
     <td>✓</td>
     <td>✓</td>
     <td>✓</td>
