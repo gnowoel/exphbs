@@ -5,13 +5,15 @@ A [Handlebars](https://github.com/wycats/handlebars.js) view engine for [Express
 <table>
   <tr>
     <td></td>
-    <td>Node.js 5.7</td>
-    <td>Node.js 4.3</td>
-    <td>Node.js 0.12</td>
-    <td>Node.js 0.10</td>
+    <td>Node.js 9.5.0</td>
+    <td>Node.js 8.9.4</td>
+    <td>Node.js 7.10.1</td>
+    <td>Node.js 6.12.3</td>
+    <td>Node.js 5.12.0</td>
   </tr>
   <tr>
     <td>Express 4</td>
+    <td>✓</td>
     <td>✓</td>
     <td>✓</td>
     <td>✓</td>
@@ -23,6 +25,7 @@ A [Handlebars](https://github.com/wycats/handlebars.js) view engine for [Express
     <td>✓</td>
     <td>✓</td>
     <td>✓</td>
+    <td>✓</td> 
   </tr>
 </table>
 
@@ -37,6 +40,7 @@ Partials:
 
   * Autoloading from defined directory (defaults to `views/partials`)
   * Namespaced partial names (based on relative paths)
+  * Supports any file extension (defaults to `hbs` and `html`)
   * Dynamically applying changes during development
 
 Helpers:
