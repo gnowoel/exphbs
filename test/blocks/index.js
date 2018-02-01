@@ -12,7 +12,7 @@ describe('blocks', function() {
 
   it('extend() returns nothing', function(done) {
     request('http://localhost:3000/', function(err, res, body) {
-      assert.equal(body, '\r\nLorem ipsum.\r\n');
+      assert.equal(body, '\nLorem ipsum.\n');
       done();
     });
   });
