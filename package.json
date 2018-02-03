@@ -1,6 +1,6 @@
 {
   "name": "exphbs",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A Handlebars view engine for Express 4.x/3.x, with Node.js and io.js support",
   "license": "MIT",
   "scripts": {
