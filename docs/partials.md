@@ -85,6 +85,16 @@ app.set('view partials', path.join(__dirname, 'views', 'custom'));
 
 Now, the partials in `views/custom` directory will be autoloaded.
 
+## Custom file extension
+
+You can customize the file extensions to search for in the partials directory by changing the `views partialsExt` application setting, for example:
+ 
+```javascript
+app.set('view partialsExt', 'handlebars'));
+```
+
+Now, any partials in the partials folder with the extension `hbs,handlebars,html` will be autoloaded.
+
 ## Manually registering
 
 The exposed `handlebars` object can be used to manually register a partial. Here's an example:
